@@ -110,7 +110,7 @@ class TransferModel:
         content_image = self.prep.get_preprocessed_input(content_path)
         self.content_features = self._get_content_features(content_image)
 
-        opt = tf.train.AdamOptimizer(learning_rate=5, beta1=0.99, epsilon=1e-1)
+        opt = tf.optimizers.Adam(learning_rate=5, beta_1=0.99, epsilon=1e-1)
         loss_weights = (style_weight, content_weight)
 
         norm_means = np.array([103.939, 116.779, 123.68])
